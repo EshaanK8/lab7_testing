@@ -30,4 +30,28 @@ public class LoginUnitTest {
         // ...then the result should be the expected one.
         assertThat(result, is(FAKE_STRING));
     }
+
+    @Test
+    public void testInvalidUsername() {
+
+        LoginActivity myObjectUnderTest = new LoginActivity(mMockContext);
+
+        // ...when the string is returned from the object under test...
+        String result = myObjectUnderTest.validateUsername("hello");
+
+        // ...then the result should be the expected one.
+        assertThat(result, is("Invalid username"));
+    }
+
+    @Test
+    public void testValidUsername() {
+
+        LoginActivity myObjectUnderTest = new LoginActivity(mMockContext);
+
+        // ...when the string is returned from the object under test...
+        String result = myObjectUnderTest.validateUsername("hello@gmail.com");
+
+        // ...then the result should be the expected one.
+        assertThat(result, is("Valid username"));
+    }
 }
